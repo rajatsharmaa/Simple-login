@@ -1,0 +1,36 @@
+<div class="login">
+    <div class="logo">
+        <img style="width: 15vw; height: 14vh;" src="./../../assets/photos/logo.png" alt="Logo">
+    </div>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <span>Login to Jhyappu</span>
+            </div>
+
+            <!-- Login Form -->
+            <form #loginForm="ngForm" class="form-group">
+                <input type="text" class="fadeIn second" name="user" [(ngModel)]="username" placeholder="username" required #user="ngModel">
+                <div *ngIf="user.invalid && (user.dirty || user.touched)" class="alert alert-danger"> Username is required
+                </div>
+                <input type="text" class="fadeIn third" [(ngModel)]="password" name="login" placeholder="password" required #pass="ngModel">
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert alert-danger"> Password is required
+                </div>
+
+            </form>
+            <button type="button" [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="forgot" href="#">Forgot Password?</a>
+                <span class="vr"></span>
+                <a class="signup" [routerLink]='["/register"]'>Sign up for an account.</a>
+            </div>
+
+        </div>
+    </div>
+</div>

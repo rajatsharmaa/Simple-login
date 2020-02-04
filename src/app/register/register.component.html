@@ -1,0 +1,94 @@
+<div class="register">
+    <div class="logo">
+        <img style="width: 15vw; height: 14vh;" src="./../../assets/photos/logo.png" alt="Logo">
+    </div>
+    <div class="container">
+        <div class="card fadeInDown col-md-6 bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+                <p>
+                    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook
+                    </a>
+                </p>
+                <p class="divider-text">
+                    <span class="bg-light">OR</span>
+                </p>
+                <form #registerForm='ngForm'>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="Fullname" class="form-control" placeholder="Full name" type="text" [(ngModel)]="Fullname" #fullName="ngModel" required>
+                    </div>
+                    <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
+                        Full name is required
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="Email address" type="email" required [(ngModel)]="email" #eMail="ngModel" required>
+                    </div>
+                    <div *ngIf="eMail.invalid && (eMail.dirty || eMail.touched)" class="alert alert-danger"> Email is required
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                        <select class="custom-select" style="max-width: 120px;">
+                            <option selected="">+977</option>
+                            <option value="1">+91</option>
+                            <option value="2">+198</option>
+                            <option value="3">+701</option>
+                        </select>
+                        <input name="phone" class="form-control" placeholder="Phone number" type="text" required [(ngModel)]="phone" #phoneNumber="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="phoneNumber.invalid && (phoneNumber.dirty|| phoneNumber.touched)">
+                        Phone no. is required.
+                    </div>
+                    <!-- form-group// -->
+                    <!-- <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                        </div>
+                         <select class="form-control">
+                            <option selected=""> Select job type</option>
+                            <option>Designer</option>
+                            <option>Manager</option>
+                            <option>Accaunting</option>
+                        </select>
+        </div> -->
+                    <!-- form-group end.// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" name="password" placeholder="Create password" type="password" required minlength="6" [(ngModel)]="password" #pass="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="pass.minlength && pass.touched">
+                        Password must be 6 character long
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" placeholder="Repeat password" type="password">
+                    </div>
+                </form>
+                <div>
+                    <button [disabled]="!registerForm.valid" type="submit" class="btn btn-success btn-block"> Create
+                        Account </button>
+                </div>
+                <p class="text-center">Have an account? <a [routerLink]="['/login']">Log In</a> </p>
+            </article>
+        </div>
+        <!-- card.// -->
+
+    </div>
+
+</div>
